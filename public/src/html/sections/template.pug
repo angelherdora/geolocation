@@ -1,0 +1,36 @@
+//- Variables
+include ../config/_site
+include ../config/_variables
+
+-var page 				= {  }
+
+- page[ 'link' ] 		= 'template.html'
+- page[ 'title' ] 		= 'title'
+- page[ 'descrip' ] 	= 'description'
+- page[ 'keys' ] 		= 'keywords'
+- page[ 'lang' ] 		= 'es'
+- page[ 'responsive' ]	= true
+- page[ 'section' ] 	= [  ] //{'url':'', 'title': ''}
+- page[ 'libsCss']		= [  ]
+- page[ 'plugins']		= [  ]
+- page[ 'js']			= [  ]
+- page[ 'print' ]       = [  ]
+
+
+doctype
+html(lang=page.lang)
+	include ../template/_head
+	body
+		.page
+			include ../template/_header
+			
+			// +_breadcrumbs
+			
+
+
+
+
+			include ../template/_footer
+		
+		#js
+			include ../template/_scripts

@@ -1,0 +1,96 @@
+//- - - - - - - - - -
+//- Javascript
+//- - - - - - - - - -
+- current_profile = CONST_DEV_PROFILE
+- var urlFolder  = ''
+- var indice = page.link
+
+if(indice != 'index.html')
+	- urlFolder = '../'
+
+//- EXTERNAL APIs
+
+- var apis = page.apis
+- var apis_scripts = {}
+
+- apis_scripts['dev'] = []
+- apis_scripts['prod'] = []
+
+if(apis.length > 0)
+	- for(var i = 0; i < apis.length; i++)
+		- apis_scripts['dev'].push(page.apis[i])
+		- apis_scripts['prod'].push(page.apis[i])
+
+if apis_scripts
+	- var total_apis = apis_scripts[current_profile].length
+	- for(var i = 0; i < total_apis; i++)
+		script(src=apis_scripts[current_profile][i])
+
+//- GLOBAL JQUERY SCRIPTS
+- var section_scripts =  {}
+
+- section_scripts['dev'] = ['js/global/jquery.js', 'js/global/jquery-ui.js']
+- section_scripts['prod'] = ['js/global/jquery.min.js', 'js/global/jquery-ui.min.js']
+
+if section_scripts
+	- var total_scripts = section_scripts[current_profile].length
+	- for(var i = 0; i < total_scripts; i++)
+		script(src=urlFolder+section_scripts[current_profile][i])
+		
+//- PLUGINS
+
+- var plugins = page.plugins
+- var plugins_scripts = {}
+
+- plugins_scripts['dev'] = []
+- plugins_scripts['prod'] = []
+
+if(plugins.length > 0)
+	- for(var i = 0; i < plugins.length; i++)
+		- plugins_scripts['dev'].push('js/plugins/'+page.plugins[i]+'.js')
+		- plugins_scripts['prod'].push('js/plugins/'+page.plugins[i]+'.min.js')
+
+if plugins_scripts
+	- var total_plugins = plugins_scripts[current_profile].length
+	- for(var i = 0; i < total_plugins; i++)
+		script(src=urlFolder+plugins_scripts[current_profile][i])
+
+
+
+//- MI SCRIPT GLOBAL
+- var globals = site.globals
+- var global_scripts =  {}
+
+- global_scripts['dev'] = []
+- global_scripts['prod'] = []
+
+if(globals.length > 0)
+	- for(var i = 0; i < globals.length; i++)
+		- global_scripts['dev'].push('js/'+site.globals[i]+'.js')
+		- global_scripts['prod'].push('js/'+site.globals[i]+'.min.js')
+
+if global_scripts
+	- var total_globals = global_scripts[current_profile].length
+	- for(var i = 0; i < total_globals; i++)
+		script(src=urlFolder+global_scripts[current_profile][i])
+	//-script(src=urlFolder+mi_scripts[current_profile])
+
+
+
+//- CONTROLADORES
+
+- var controllers = page.js
+- var controllers_scripts = {}
+
+- controllers_scripts['dev'] = []
+- controllers_scripts['prod'] = []
+
+if(controllers.length > 0)
+	- for(var i = 0; i < controllers.length; i++)
+		- controllers_scripts['dev'].push('js/controllers/'+page.js[i]+'.js')
+		- controllers_scripts['prod'].push('js/controllers/'+page.js[i]+'.min.js')
+
+if controllers_scripts
+	- var total_controllers = controllers_scripts[current_profile].length
+	- for(var i = 0; i < total_controllers; i++)
+		script(src=controllers_scripts[current_profile][i])

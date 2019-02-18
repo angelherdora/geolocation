@@ -1,0 +1,39 @@
+//- Variables
+include config/_site
+include config/_variables
+
+-var page 				= {  }
+
+- page[ 'link' ] 		= 'index.html'
+- page[ 'title' ] 		= 'title'
+- page[ 'descrip' ] 	= 'description'
+- page[ 'keys' ] 		= 'keywords'
+- page[ 'lang' ] 		= 'es'
+- page[ 'responsive' ]	= true
+- page[ 'section' ] 	= [  ]
+- page[ 'libsCss']		= [  ]
+- page[ 'apis' ]		= [ 'https://maps.googleapis.com/maps/api/js?key=AIzaSyA1B_-E93F9fJudHtDV_X7rZjjyz-2d-Ss&callback=initMap' ]
+- page[ 'plugins']		= [  ]
+- page[ 'js']			= [ 'home' ]
+- page[ 'print' ]       = [  ]
+
+
+doctype
+html(lang=page.lang)
+	include template/_head
+	body
+		.page
+			include template/_header
+			section.geolocate-section
+				.map#map(data-lat="19.4978" data-lng="-99.1269" data-icon="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/map-marker-128.png")
+				.tools
+					button.btn.btn-default#btnLocate Localizame
+					p ó
+					input#address(type="text" placeholder="Localizame esta...")
+					p ó
+					button.btn.btn-default#btnRoute(data-lat="19.432078" data-lng="-99.134592") ¿Cómo llegar al Hotel de la CDMX?
+					.panel#panelRoute
+			include template/_footer
+		
+		#js
+			include template/_scripts

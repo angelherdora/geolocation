@@ -1,0 +1,97 @@
+header
+	background brand-color
+	padding 4px
+	box-sizing border-box
+	position relative
+	.nav
+		display none
+	.icon.icon-menu
+		position absolute
+		transition .8s
+		transition-delay .8s
+	.top-level
+		width 100%
+		text-align center
+		position relative
+		a
+			display inline-block
+		img
+			display block
+			height 28px
+			margin 6px 0
+			width auto
+			transition .8s
+		.icon.icon-menu
+			top 0
+			bottom 0
+			margin auto
+	.bottom-level
+		position absolute
+		right 10px
+		width auto
+	.search-box
+		padding 0 6px 12px
+		box-sizing border-box
+
+.page
+	&.login
+		header
+			background none
+			.icon
+				opacity 0
+				z-index -2
+			img
+				height 50px
+				margin 30px 0
+	&.register
+		header
+			background none
+			.icon
+				opacity 1
+				z-index 2
+			img
+				height 40px
+				margin 5px 0
+	&.dashboard
+		header
+			.search-box
+				display none
+			.top-level .icon.icon-menu
+				bottom inherit
+			.bottom-level
+				a
+					display block
+				.cta
+					display block
+				.notify
+					display none
+					height 34px
+					width 34px
+					margin 3px
+					.vip .icon
+						width 19px
+						height 19px
+						border none
+						background white-color
+						right inherit
+						left -8px
+						bottom 0
+						font-size 12px
+						color brand-color
+						text-align center
+						line-height 19px
+						font-weight bold
+		&.session
+			header
+				.bottom-level 
+					.cta
+						display none
+					.notify
+						display block
+		&.fixed
+			position fixed
+			overflow hidden
+			top 0
+			bottom 0
+			left 0
+			right 0
