@@ -8,31 +8,51 @@
   var lat = Number(blkMap.attr('data-lat')),
       lng = Number(blkMap.attr('data-lng')),
       icon = blkMap.attr('data-icon'),
-      zoom = 0,
+      infoWindow = 
+      zoom = 13,
       config = [{
         "featureType": "poi",
         "stylers": [
-          { "visibility": "on" }
+          { "visibility": "off" }
         ]
       }],
       options = {
-        //
+        enableHighAccuracy: true, 
+        maximumAge        : 10000, 
+        timeout           : 10000
       };
 
   var id, myLatlng, GMap;
   var route = btnRoute.attr('data-lat')+','+btnRoute.attr('data-lng');
-  //
-  //
+
   var controllerMap = function(lat,lng, zoom){
-    //
+    GMap = new google.maps.Map(blkMap[0], {
+      center: {lat: lat,lng: lng},
+      zoom: zoom,
+      styles: config
+    });
   };
 
   var controllerPin = function(lat, lng){
-    //
+    var marker = new google.maps.Marker({
+      position: {lat: lat,lng: lng},
+      icon: icon
+    });
+    marker.setMap(GMap);
   };
 
   var controllerInfoWindow = function(lat, lng){
-    //
+    var marker = new google.maps.Marker({
+      position: {lat: lat,lng: lng},
+      icon: icon
+    });
+    var infoWindow = new google.maps.InfoWindow({
+      content:'<p>aqui está la ubicación</p>'
+    });
+    marker.setMap(GMap);
+    marker.addListener('click', function(){
+      infoWindow.open(GMap, marker);
+    });
   };
 
   var controllerLocate = function(){
@@ -117,9 +137,9 @@
 
   var init = function(){
     controllerMap(lat,lng,zoom);
-    // controllerLocate();
-    // controllerGeocode();
-    // controllerRoute();
+    controllerLocate();
+    controllerGeocode();
+    controllerRoute();
   };
   init();
 })();

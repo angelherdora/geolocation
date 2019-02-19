@@ -712,7 +712,7 @@ var _getModifiedFile = function (dir){
       ext = '';
   file_system.watch(dir,{recursive:true}, function(eventType, path){
     ext = path_system.extname(path);
-    folders = path.split('\\');
+    folders = path.split('/');
     total = folders.length;
     if ( total > 1)
       file = folders[total-1];

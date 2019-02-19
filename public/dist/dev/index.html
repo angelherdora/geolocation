@@ -14,18 +14,19 @@
   <body>
     <div class="page">
       <section class="geolocate-section">
-        <div class="map" id="map" data-lat="19.4978" data-lng="-99.1269" data-icon=""></div>
+        <div class="map" id="map" data-lat="19.4978" data-lng="-99.1269" data-icon="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/map-marker-128.png"></div>
         <div class="tools">
           <button class="btn btn-default" id="btnLocate">Localizame</button>
           <p>ó</p>
-          <input id="address" type="text" placeholder="Localizame la direción...">
+          <input id="address" type="text" placeholder="Localizame esta...">
           <p>ó</p>
-          <button class="btn btn-default" id="btnRoute" data-lat="" data-lng="">¿Cómo llegar al Hotel de la CDMX?</button>
+          <button class="btn btn-default" id="btnRoute" data-lat="19.432078" data-lng="-99.134592">¿Cómo llegar al Hotel de la CDMX?</button>
           <div class="panel" id="panelRoute"></div>
         </div>
       </section>
     </div>
     <div id="js">
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1B_-E93F9fJudHtDV_X7rZjjyz-2d-Ss&amp;callback=initMap"></script>
       <script src="js/global/jquery.js"></script>
       <script src="js/global/jquery-ui.js"></script>
       <script src="js/main.js"></script>
