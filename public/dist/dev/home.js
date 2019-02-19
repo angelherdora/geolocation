@@ -21,7 +21,8 @@
 
   var id, myLatlng, GMap;
   var route = btnRoute.attr('data-lat')+','+btnRoute.attr('data-lng');
-
+  //
+  //
   var controllerMap = function(lat,lng, zoom){
     //
   };
